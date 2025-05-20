@@ -3,6 +3,7 @@ package com.project.project.controllers;
 import com.project.project.dtos.ProductDto;
 import com.project.project.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,8 +18,15 @@ public class ProductController {
 
     @GetMapping("/{id}")
     public ResponseEntity<ProductDto> getProductById(@PathVariable Long id) {
-        ResponseEntity<ProductDto> productDtoResponseEntity = productService.getProduct(id);
-        return productDtoResponseEntity;
+//        throw new RuntimeException("No such product");
+//        ResponseEntity<ProductDto> response = null;
+//        try {
+//            response = productService.getProduct(id);
+//        } catch (RuntimeException e) {
+//            response = new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//        }
+
+        return productService.getProduct(id);
     }
 
     @GetMapping("/")

@@ -1,12 +1,14 @@
 package com.project.project.services;
 
 import com.project.project.dtos.ProductDto;
+import com.project.project.exception.ProductNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -27,9 +29,11 @@ public class FakeProductService implements ProductService {
 
     @Override
     public ResponseEntity<ProductDto> getProduct(long productId) {
-        int id = (int) productId;
-        ProductDto productDto = restTemplate.getForEntity("https://fakestoreapi.com/products/" + id, ProductDto.class).getBody();
-        return new ResponseEntity<>(productDto, HttpStatus.OK);
+//        throw new RuntimeException("Not implemented yet");
+//        int id = (int) productId;
+//        ProductDto productDto = restTemplate.getForEntity("https://fakestoreapi.com/products/" + id, ProductDto.class).getBody();
+//        return new ResponseEntity<>(productDto, HttpStatus.OK);
+        throw new ProductNotFoundException("Product not found with product id " + productId);
     }
 
     @Override
@@ -39,6 +43,9 @@ public class FakeProductService implements ProductService {
 
     @Override
     public List<ProductDto> getAllProducts() {
-        return List.of();
+        ProductDto[] productDtos = restTemplate.getForEntity("https://fakestoreapi.com/products", ProductDto[].class).getBody();
+        List<ProductDto> productDtoList = Arrays.asList(productDtos);
+
+        return productDtoList;
     }
 }
