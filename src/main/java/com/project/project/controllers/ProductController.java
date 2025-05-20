@@ -18,7 +18,7 @@ public class ProductController {
 
     @GetMapping("/{id}")
     public ResponseEntity<ProductDto> getProductById(@PathVariable Long id) {
-//        throw new RuntimeException("No such product");
+       //throw new RuntimeException("No such product");
 //        ResponseEntity<ProductDto> response = null;
 //        try {
 //            response = productService.getProduct(id);
