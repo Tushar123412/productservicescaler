@@ -3,6 +3,7 @@ package com.project.project.controllers;
 import com.project.project.dtos.ProductDto;
 import com.project.project.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +15,12 @@ import java.util.List;
 public class ProductController {
 
     @Autowired
+    @Qualifier("FakeProductService")
     private ProductService productService;
+
+//    public ProductController(@Qualifier("FakeProductService") ProductService productService) {
+//        this.productService = productService;
+//    }
 
     @GetMapping("/{id}")
     public ResponseEntity<ProductDto> getProductById(@PathVariable Long id) {

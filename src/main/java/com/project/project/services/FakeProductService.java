@@ -11,7 +11,7 @@ import org.springframework.web.client.RestTemplate;
 import java.util.Arrays;
 import java.util.List;
 
-@Service
+@Service("FakeProductService")
 public class FakeProductService implements ProductService {
 
     @Autowired

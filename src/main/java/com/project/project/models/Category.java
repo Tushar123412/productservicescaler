@@ -1,5 +1,6 @@
 package com.project.project.models;
 
+import jakarta.persistence.Entity;
 import lombok.*;
 
 @Data
@@ -7,6 +8,7 @@ import lombok.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity(name = "categories")
 public class Category extends BaseModel {
     private String name;
 }
