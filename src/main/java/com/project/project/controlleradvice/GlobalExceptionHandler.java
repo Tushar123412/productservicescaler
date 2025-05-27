@@ -1,7 +1,6 @@
 package com.project.project.controlleradvice;
 
 import com.project.project.dtos.ExceptionDto;
-import com.project.project.dtos.ProductDto;
 import com.project.project.exception.ProductNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

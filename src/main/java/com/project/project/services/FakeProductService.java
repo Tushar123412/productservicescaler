@@ -1,9 +1,9 @@
 package com.project.project.services;
 
-import com.project.project.dtos.ProductDto;
+
 import com.project.project.exception.ProductNotFoundException;
+import com.project.project.models.Product;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -18,17 +18,17 @@ public class FakeProductService implements ProductService {
     private RestTemplate restTemplate;
 
     @Override
-    public ProductDto addProduct(ProductDto productDto) {
+    public Product addProduct(Product product) {
         return null;
     }
 
     @Override
-    public ProductDto updateProduct(ProductDto productDto) {
+    public Product updateProduct(Product product) {
         return null;
     }
 
     @Override
-    public ResponseEntity<ProductDto> getProduct(long productId) {
+    public ResponseEntity<Product> getProduct(long productId) {
 //        throw new RuntimeException("Not implemented yet");
 //        int id = (int) productId;
 //        ProductDto productDto = restTemplate.getForEntity("https://fakestoreapi.com/products/" + id, ProductDto.class).getBody();
@@ -42,9 +42,9 @@ public class FakeProductService implements ProductService {
     }
 
     @Override
-    public List<ProductDto> getAllProducts() {
-        ProductDto[] productDtos = restTemplate.getForEntity("https://fakestoreapi.com/products", ProductDto[].class).getBody();
-        List<ProductDto> productDtoList = Arrays.asList(productDtos);
+    public List<Product> getAllProducts() {
+        Product[] productDtos = restTemplate.getForEntity("https://fakestoreapi.com/products", Product[].class).getBody();
+        List<Product> productDtoList = Arrays.asList(productDtos);
 
         return productDtoList;
     }

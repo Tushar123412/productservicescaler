@@ -1,15 +1,15 @@
 package com.project.project.services;
 
-import com.project.project.dtos.ProductDto;
+import com.project.project.models.Product;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
 public interface ProductService {
-    public ProductDto addProduct(ProductDto productDto);
-    public ProductDto updateProduct(ProductDto productDto);
+    public Product addProduct(Product product);
+    public Product updateProduct(Product product);
 
-    public ResponseEntity<ProductDto> getProduct(long productId);
+    public ResponseEntity<Product> getProduct(long productId);
     public void deleteProduct(long productId);
-    public List<ProductDto> getAllProducts();
+    public List<Product> getAllProducts();
 }
