@@ -55,11 +55,14 @@ public class DatabaseProductService implements ProductService {
 
     @Override
     public ResponseEntity<Product> getProduct(long productId) {
-        Optional<Product> product = productRepository.findById(productId);
-        if(!product.isPresent()) {
-            throw new ProductNotFoundException("Product with id " + productId + " not found");
-        }
-        return ResponseEntity.ok(product.get());
+//        Optional<Product> product = productRepository.findById(productId);
+//        if(!product.isPresent()) {
+//            throw new ProductNotFoundException("Product with id " + productId + " not found");
+//        }
+//        return ResponseEntity.ok(product.get());
+//        Product product = productRepository.getProductThroughId(productId);
+        Product product = productRepository.getProductThroughIdNative(productId);
+        return ResponseEntity.ok(product);
     }
 
     @Override
