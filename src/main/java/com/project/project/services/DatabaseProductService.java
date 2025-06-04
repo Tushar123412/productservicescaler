@@ -34,7 +34,7 @@ public class DatabaseProductService implements ProductService {
         product.setTitle(productDto.getTitle());
         product.setDescription(productDto.getDescription());
         product.setPrice(productDto.getPrice());
-        product.setImage(productDto.getImage());
+        product.setImageUrl(productDto.getImageUrl());
 
         if(category.isPresent()) {
             product.setCategory(category.get());

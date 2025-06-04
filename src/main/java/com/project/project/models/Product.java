@@ -1,6 +1,7 @@
 package com.project.project.models;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.ManyToOne;
 import lombok.*;
 
@@ -11,7 +12,7 @@ public class Product extends BaseModel {
     private String title;
     private Double price;
     private String description;
-    private String image;
-    @ManyToOne
+    private String imageUrl;
+    @ManyToOne(fetch = FetchType.LAZY)
     private Category category;
 }
